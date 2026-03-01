@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"shell-app": {
+		"mfe1": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
@@ -16,15 +16,13 @@
 			"architect": {
 				"build": {
 					"builder": "@angular-architects/native-federation:build",
-					"options": {
-						"ssr": true
-					},
+					"options": {},
 					"configurations": {
 						"production": {
-							"target": "shell-app:esbuild:production"
+							"target": "mfe1:esbuild:production"
 						},
 						"development": {
-							"target": "shell-app:esbuild:development",
+							"target": "mfe1:esbuild:development",
 							"dev": true
 						}
 					},
@@ -33,7 +31,7 @@
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "shell-app:serve-original:development",
+						"target": "mfe1:serve-original:development",
 						"rebuildDelay": 0,
 						"dev": true,
 						"port": 0
@@ -66,7 +64,7 @@
 				"esbuild": {
 					"builder": "@angular-devkit/build-angular:application",
 					"options": {
-						"outputPath": "dist/shell-app",
+						"outputPath": "dist/mfe1",
 						"index": "src/index.html",
 						"browser": "src/main.ts",
 						"polyfills": [
@@ -84,12 +82,7 @@
 						"styles": [
 							"src/styles.scss"
 						],
-						"scripts": [],
-						"server": "src/main.server.ts",
-						"prerender": false,
-						"ssr": {
-							"entry": "server.ts"
-						}
+						"scripts": []
 					},
 					"configurations": {
 						"production": {
@@ -119,21 +112,21 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "shell-app:esbuild:production"
+							"buildTarget": "mfe1:esbuild:production"
 						},
 						"development": {
-							"buildTarget": "shell-app:esbuild:development"
+							"buildTarget": "mfe1:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4200
+						"port": 4201
 					}
 				}
 			}
 		}
 	},
 	"cli": {
-		"analytics": "d06b6647-5601-4864-b6af-1731c1e5859b"
+		"analytics": "05e6915a-825f-4e15-8072-062897ce677b"
 	}
 }
